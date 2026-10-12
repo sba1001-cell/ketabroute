@@ -803,6 +803,88 @@ body.focus-mode .sentence { background:#fff; color:#1e293b; border-right-color:#
 }
 @media (prefers-reduced-motion:reduce) { *,*::before,*::after {scroll-behavior:auto!important; transition:none!important;} }
 
+
+/* KetabRoute 2: ساده‌سازی مسیرمحور، بدون حذف قابلیت‌های قبلی */
+:root { --simple-ink:#203049; --simple-muted:#67788c; --simple-primary:#325ac2; --simple-border:#e5eaf2; }
+body { background:#f5f6f4; color:var(--simple-ink); padding-bottom:100px; }
+.app { max-width:760px; }
+header { margin-bottom:12px; padding:22px 4px 6px; }
+header::before, .ketab-badge, .quick-links { display:none !important; }
+header h1 { font-size:clamp(27px,5vw,33px); color:#273f7a; }
+header p { margin-top:4px; font-size:12px; }
+.simple-intro { background:linear-gradient(135deg,#f0f3ff,#fff); border:1px solid #e0e7f7; border-radius:21px; padding:19px 19px 17px; margin:0 0 15px; }
+.simple-intro .eyebrow { font-size:12px; font-weight:bold; color:#4f68a5; margin:0 0 8px; }
+.simple-intro h2 { margin:0 0 7px; font-size:21px; line-height:1.8; color:#233d72; }
+.simple-intro p { font-size:13px; line-height:2; color:#52647c; margin:0 0 14px; }
+.simple-start { width:100%; min-height:48px; color:white; background:#3159c6; font-weight:bold; font-family:inherit; font-size:15px; }
+.simple-start:hover { background:#2349ad; }
+.simple-route { background:#fff; border:1px solid var(--simple-border); border-radius:19px; padding:17px 14px 10px; margin:0 0 17px; box-shadow:0 6px 20px #25385008; scroll-margin-top:18px; }
+.simple-route-head { display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+.simple-route-head h2 { margin:0; font-size:17px; color:#284275; }
+.simple-route .route-stations { margin:7px 0 5px; border:none; padding:13px 7px 9px; }
+.simple-route .route-stations::before { top:34px; }
+.simple-route .route-traveled { top:34px; }
+.simple-route .route-traffic { top:67px; }
+.simple-route .station-item { gap:27px; }
+.simple-route .station { width:43px; height:43px; }
+.simple-route .station-item small { font-size:10px; }
+.simple-route #readingRoute { background:#edf2ff; color:#264caa; border-radius:30px; padding:7px 11px; font-size:12px; font-weight:bold; margin:0; }
+.simple-route .progress { margin:7px 0 0; height:7px; }
+.simple-route .progress-fill { height:7px; }
+.simple-route #readingPosition { font-size:12px; color:#6e7e90; margin:8px 0 0; }
+.simple-route-note { margin:8px 0 0; text-align:center; color:#718195; font-size:11px; }
+.reader-shell { padding:19px; border-radius:19px; box-shadow:none; border:1px solid var(--simple-border); margin:0 0 15px; scroll-margin-top:20px; }
+.reader-kicker { color:#63748b; }
+#bookTitle { font-size:23px; margin-bottom:12px; }
+.sentence { min-height:unset; font-size:18px; line-height:2.8; padding:25px 17px; margin:12px 0; border-radius:15px; }
+.simple-tap-hint { color:#65778b; font-size:12px; margin:4px 0 13px; line-height:1.8; }
+.page-navigation { margin:12px 0 9px; }
+.page-navigation button { min-height:48px; }
+#focusModeButton { font-size:12px; padding:9px 12px; margin:0 0 7px; }
+.simple-details { border:1px solid #e5eaf2; background:#fafbfe; border-radius:13px; margin-top:12px; padding:0 12px; }
+.simple-details > summary { color:#2e4b86; font-size:13px; font-weight:bold; padding:15px 3px; cursor:pointer; list-style:none; min-height:45px; }
+.simple-details > summary::-webkit-details-marker { display:none; }
+.simple-details > summary::after { content:'⌄'; float:left; font-size:19px; font-weight:normal; line-height:16px; }
+.simple-details[open] > summary::after { content:'⌃'; }
+.simple-details[open] > summary { border-bottom:1px solid #e6ebf4; margin-bottom:13px; }
+.simple-details .reading-tools { margin:0 0 12px; grid-template-columns:1fr; }
+.simple-details .reader-card { background:white; }
+.simple-details .actions { margin-top:0; }
+.simple-details #commentSection { margin-bottom:15px; }
+.simple-insights { max-width:760px; margin:10px auto 15px; padding:0 14px; background:white; }
+.simple-insights .insights-shell { margin:0; gap:12px; }
+.simple-insights .insights-heading { padding:0; }
+.simple-insights .insights-heading h2 { font-size:17px; }
+.simple-insights .container { margin:0 0 15px; box-shadow:none; padding:15px; border-radius:13px; }
+.simple-insights .route-endpoints { margin:0; }
+.simple-insights .route-stations { display:none; }
+.simple-insights > summary { font-size:14px; }
+.bottom-nav { display:none !important; }
+.simple-nav { position:fixed; z-index:95; bottom:0; right:0; left:0; display:flex; gap:7px; padding:9px max(12px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left)); border-top:1px solid #e3e8ef; background:#fffc; box-shadow:0 -5px 24px #182b4514; backdrop-filter:blur(14px); }
+.simple-nav button { flex:1; font:inherit; font-size:12px; background:transparent; color:#566b89; display:flex; align-items:center; justify-content:center; gap:7px; min-height:48px; padding:8px 5px; }
+.simple-nav button.active { background:#eaf0ff; color:#284fb7; font-weight:bold; }
+.simple-nav button span { font-size:17px; }
+.ketab-footer { font-size:11px; }
+body.focus-mode .simple-intro, body.focus-mode .simple-route,body.focus-mode .simple-insights,body.focus-mode .simple-nav,body.focus-mode .simple-details,body.focus-mode .simple-tap-hint { display:none!important; }
+body.focus-mode .reader-shell { background:#fffdf8; border:0; }
+body.focus-mode .page-navigation { display:flex; }
+@media(max-width:600px) {
+ body { padding:0 12px 92px; }
+ header { padding:16px 0 8px; }
+ .simple-intro { padding:15px; border-radius:17px; }
+ .simple-intro h2 { font-size:19px; }
+ .simple-route { padding:14px 9px 9px; }
+ .simple-route .route-stations { padding:12px 4px 7px; }
+ .simple-route .route-stations::before,.simple-route .route-traveled { top:33px; }
+ .simple-route .route-traffic { top:62px; right:22px; left:22px; }
+ .simple-route .station { width:39px; height:39px; }
+ .simple-route .station-item { gap:24px; }
+ .reader-shell { padding:16px 13px; }
+ .sentence { font-size:18px; line-height:2.75; padding:21px 14px; }
+ #bookTitle { font-size:21px; }
+ .simple-insights { padding:0 12px; }
+}
+
 </style>
 </head>
 
@@ -811,7 +893,7 @@ body.focus-mode .sentence { background:#fff; color:#1e293b; border-right-color:#
 
 <header>
   <h1>📚 کتاب‌راه</h1>
-  <p>هر کتاب یک سفر است</p>
+  <p>کتاب بخوان؛ مسیر پیشرفتت را ببین.</p>
 </header>
 
 
@@ -2238,6 +2320,253 @@ renderBookmarks();
   document.querySelector(".container")?.after(footer);
 })();
 
+
+/* KetabRoute 2 — نمایش مرحله‌ای قابلیت‌های موجود */
+(function simplifyReaderExperience() {
+  const app = document.querySelector('.app');
+  const reader = document.getElementById('readerHome');
+  const insights = document.getElementById('insightsPanel');
+  if (!app || !reader || !insights) return;
+  const header = app.querySelector('header');
+  const intro = document.createElement('section');
+  intro.className = 'simple-intro';
+  intro.innerHTML = '<p class="eyebrow">✨ خوش آمدید به کتاب‌راه</p><h2>هر کتاب، یک مسیر برای کشف</h2><p>یک صفحه بخوان، مسیر پیشرفتت را ببین و جمله‌هایی را که توجهت را جلب می‌کنند انتخاب کن.</p>';
+  const startButton = document.createElement('button');
+  startButton.className = 'simple-start';
+  startButton.type = 'button';
+  startButton.textContent = '📖 شروع یا ادامه مطالعه';
+  startButton.addEventListener('click', () => reader.scrollIntoView({behavior:'smooth',block:'start'}));
+  intro.appendChild(startButton);
+  header.after(intro);
+
+  const journey = document.createElement('section');
+  journey.className = 'simple-route';
+  journey.id = 'simpleRoute';
+  journey.setAttribute('aria-label','مسیر مطالعه');
+  const routeHead = document.createElement('div');
+  routeHead.className = 'simple-route-head';
+  const routeTitle = document.createElement('h2');
+  routeTitle.textContent = '🛤️ مسیر مطالعه تو';
+  routeHead.appendChild(routeTitle);
+  journey.appendChild(routeHead);
+  const routeText = document.getElementById('readingRoute');
+  if (routeText) routeHead.appendChild(routeText);
+  ['route-stations','progress'].forEach(className => {
+    const el = insights.querySelector('.'+className);
+    if (el) journey.appendChild(el);
+  });
+  const position = document.getElementById('readingPosition');
+  if (position) journey.appendChild(position);
+  const routeHint = document.createElement('p');
+  routeHint.className = 'simple-route-note';
+  routeHint.textContent = 'روی هر ایستگاه بزن تا به همان صفحه بروی.';
+  journey.appendChild(routeHint);
+  reader.before(journey);
+
+  const sentenceLast = document.getElementById('s4');
+  const nav = reader.querySelector('.page-navigation');
+  if (sentenceLast && nav) sentenceLast.after(nav);
+  const tapHint = document.createElement('p');
+  tapHint.className = 'simple-tap-hint';
+  tapHint.textContent = '💡 برای انتخاب جمله، روی متن آن بزن.';
+  if (nav) nav.after(tapHint);
+
+  function detailsWith(title,className) {
+    const details = document.createElement('details');
+    details.className = 'simple-details '+className;
+    const summary = document.createElement('summary');
+    summary.textContent = title;
+    details.appendChild(summary);
+    return details;
+  }
+  const tools = reader.querySelector('.reading-tools');
+  const toolsDetails = detailsWith('🔎 جست‌وجو و نشانک‌ها','simple-tools');
+  if (tools) { tools.before(toolsDetails); toolsDetails.appendChild(tools); }
+  const interact = detailsWith('💬 واکنش به جمله و گفت‌وگو','simple-interact');
+  const actions = reader.querySelector('.actions');
+  const message = document.getElementById('message');
+  const comments = document.getElementById('commentSection');
+  if (actions) { actions.before(interact); interact.appendChild(actions); }
+  if (message) interact.appendChild(message);
+  if (comments) interact.appendChild(comments);
+  if (nav) nav.after(tapHint,toolsDetails,interact);
+
+  const advanced = detailsWith('📊 مشاهده اطلاعات ترافیک و رتبه‌بندی','simple-insights');
+  advanced.id = 'simpleAdvanced';
+  insights.before(advanced);
+  advanced.appendChild(insights);
+  const trafficMap = document.querySelector('.container');
+  if (trafficMap) advanced.appendChild(trafficMap);
+
+  document.querySelector('.bottom-nav')?.remove();
+  const bottom = document.createElement('nav');
+  bottom.className = 'simple-nav';
+  bottom.setAttribute('aria-label','ناوبری اصلی کتاب‌راه');
+  const items = [
+    ['📖','مطالعه',()=>reader],
+    ['🛤️','مسیر',()=>journey],
+    ['☰','ابزارها',()=>toolsDetails]
+  ];
+  items.forEach(([emoji,label,getTarget],index)=>{
+    const button=document.createElement('button');
+    button.type='button';
+    if(index===0)button.classList.add('active');
+    const symbol=document.createElement('span');symbol.textContent=emoji;
+    button.append(symbol,document.createTextNode(label));
+    button.addEventListener('click',()=>{
+      bottom.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+      button.classList.add('active');
+      if(index===2) toolsDetails.open=true;
+      getTarget().scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    bottom.appendChild(button);
+  });
+  document.body.appendChild(bottom);
+  // با انتخاب جمله، واکنش‌ها فقط در صورت درخواست کاربر نمایش داده می‌شوند.
+  reader.querySelectorAll('.sentence').forEach(sentence=>{
+    sentence.addEventListener('click',()=>{interact.open=true;});
+    sentence.setAttribute('role','button');
+    sentence.setAttribute('tabindex','0');
+    sentence.setAttribute('aria-label','انتخاب جمله برای ثبت نظر یا واکنش');
+    sentence.addEventListener('keydown',event=>{
+      if(event.key==='Enter'||event.key===' '){event.preventDefault();sentence.click();}
+    });
+  });
+})();
+
 </script>
+
+<style>
+/* KetabRoute V3: distraction-free default, original features kept in More */
+#prevPage[hidden] { display:none!important; }
+html { scroll-behavior: smooth; }
+body { background:#f9f8f4; padding:0 12px 48px; }
+.app { max-width:680px; }
+header { margin:0; padding:21px 8px 11px; }
+header::before, .ketab-badge, .quick-links, .simple-intro,
+.simple-route-note, .simple-route #readingPosition,
+.simple-route .progress, .simple-route .route-traffic,
+.simple-route .station-item small, .simple-route .hotspot-marker,
+.reader-kicker, .simple-tap-hint, .simple-nav, .ketab-footer { display:none!important; }
+header h1 { font-size:23px; letter-spacing:0; }
+header p { margin-top:5px; font-size:12px; }
+.simple-route { box-shadow:none; border:0; background:transparent; padding:2px 2px 5px; margin:0 0 8px; }
+.simple-route-head { justify-content:center; }
+.simple-route-head h2 { display:none; }
+.simple-route #readingRoute { background:transparent; color:#758296; font-size:12px; padding:3px; }
+.simple-route .route-stations { background:transparent; margin:2px 0 0; padding:8px 12px; }
+.simple-route .route-stations::before { top:24px; height:3px; opacity:.55; left:31px; right:31px; }
+.simple-route .route-traveled { top:24px; height:3px; }
+.simple-route .station-item { gap:0; }
+.simple-route .station { width:30px; height:30px; border-width:1px; font-size:13px; box-shadow:none; }
+.simple-route .station.traffic-green, .simple-route .station.traffic-yellow, .simple-route .station.traffic-red { box-shadow:none; }
+.reader-shell { background:#fff; border:1px solid #e9e7df; padding:24px 19px 19px; border-radius:18px; box-shadow:0 3px 18px #1a253007; margin:0 0 12px; }
+#bookTitle { font-size:21px; text-align:center; margin:0 0 24px; line-height:1.8; }
+.sentence, .sentence.medium, .sentence.busy { background:transparent; border:0; border-radius:0; padding:6px 2px 16px; min-height:150px; margin:0; font-size:clamp(20px,4.5vw,23px); line-height:2.9; color:#263244; text-align:right; }
+.sentence.selected { outline:0; box-shadow:none; background:#f9f7eb; border-radius:8px; }
+.page-navigation { background:transparent; padding:8px 0 0; margin:12px 0 0; border:0; gap:6px; }
+.page-navigation button { min-height:46px; font-size:13px; }
+#prevPage { background:#eef0f4; color:#536175; box-shadow:none; }
+#nextPage { background:#3059b7; color:#fff; flex:1; }
+#pageNumber { font-size:12px; white-space:nowrap; color:#778296; }
+.minimal-more { max-width:680px; margin:0 auto 20px; border:0; padding:0; background:none; }
+.minimal-more > summary { cursor:pointer; color:#52627a; list-style:none; display:flex; align-items:center; justify-content:center; min-height:43px; padding:8px 16px; margin:auto; width:max-content; font-size:13px; border:1px solid #dfe4ec; background:white; border-radius:30px; }
+.minimal-more > summary::-webkit-details-marker { display:none; }
+.minimal-more[open] > summary { margin-bottom:16px; color:#2546a5; border-color:#c8d6f0; }
+.minimal-more > .more-content { display:grid; gap:10px; padding-bottom:14px; }
+.minimal-more .simple-details { background:white; }
+.minimal-more #focusModeButton { display:block; width:100%; margin:0; }
+.minimal-more .simple-insights { width:100%; }
+.minimal-more #insightsPanel { margin:0; }
+.minimal-more .container { margin:0; }
+.minimal-more .simple-details summary { font-size:14px; }
+body.focus-mode .minimal-more { display:none!important; }
+body.focus-mode .reader-shell { padding:24px 8px; }
+body.focus-mode .page-navigation { display:flex!important; }
+body.focus-mode .minimal-focus-exit { display:block; }
+.minimal-focus-exit { display:none; position:fixed; bottom:18px; left:18px; z-index:99; background:#334155; color:white; font:inherit; border-radius:30px; box-shadow:0 4px 16px #0002; }
+@media(max-width:600px) {
+ body { padding:0 12px 30px; }
+ .reader-shell { padding:21px 17px 16px; }
+ .sentence, .sentence.medium, .sentence.busy { min-height:135px; font-size:20px; line-height:2.75; }
+ .simple-route .route-stations::before,.simple-route .route-traveled { top:24px; }
+ .simple-route .route-stations { padding:8px 12px; }
+}
+</style>
+<script>
+(function makeMinimalReader() {
+  const app=document.querySelector('.app');
+  const reader=document.querySelector('#readerHome');
+  const nav=reader?.querySelector('.page-navigation');
+  if (!app || !reader || !nav) return;
+  const more=document.createElement('details');
+  more.className='minimal-more';
+  more.id='minimalMore';
+  const summary=document.createElement('summary');
+  summary.textContent='☰ امکانات بیشتر';
+  more.appendChild(summary);
+  const content=document.createElement('div');
+  content.className='more-content';
+  more.appendChild(content);
+  reader.after(more);
+  const focus=document.getElementById('focusModeButton');
+  const tools=reader.querySelector('.simple-tools');
+  const interact=reader.querySelector('.simple-interact');
+  const advanced=document.getElementById('simpleAdvanced');
+  if(focus) content.appendChild(focus);
+  if(tools) content.appendChild(tools);
+  if(interact) content.appendChild(interact);
+  if(advanced) content.appendChild(advanced);
+  const exit=document.createElement('button');
+  exit.className='minimal-focus-exit';
+  exit.type='button';
+  exit.textContent='↩ خروج از تمرکز';
+  exit.addEventListener('click',()=>focus?.click());
+  document.body.appendChild(exit);
+  // When the reader taps a sentence, reveal reaction options on demand.
+  reader.querySelectorAll('.sentence').forEach(el => {
+    el.addEventListener('click',()=>{
+      more.open=true;
+      if(interact) interact.open=true;
+    });
+  });
+  const prev=document.getElementById("prevPage");
+  const syncPrevious=()=>{if(prev) prev.hidden=(currentPage===1);};
+  document.getElementById("nextPage")?.addEventListener("click",syncPrevious);
+  prev?.addEventListener("click",syncPrevious);
+  document.querySelectorAll(".station").forEach(st=>st.addEventListener("click",syncPrevious));
+  syncPrevious();
+  // Initial entry stays deliberately sparse and uncluttered.
+  if(tools) tools.open=false;
+  if(interact) interact.open=false;
+  if(advanced) advanced.open=false;
+  if(!window.location.hash) window.scrollTo(0,0);
+})();
+</script>
+
+<script>
+/* KetabRoute V3.1 — Hotspot jump: reveal the destination instead of leaving the reader inside More. */
+(function repairHotspotNavigation() {
+  const button = document.getElementById('goToHotspotButton');
+  if (!button) return;
+  button.addEventListener('click', function (event) {
+    event.preventDefault();
+    event.stopImmediatePropagation(); // prevent the old inline click handler
+    const hotspot = findHotspotPage();
+    goToPage(hotspot.page);
+    const more = document.getElementById('minimalMore');
+    const advanced = document.getElementById('simpleAdvanced');
+    if (advanced) advanced.open = false;
+    if (more) more.open = false;
+    const prev = document.getElementById('prevPage');
+    if (prev) prev.hidden = (currentPage === 1);
+    const destination = document.getElementById('bookTitle');
+    if (destination) {
+      requestAnimationFrame(() => destination.scrollIntoView({behavior:'smooth', block:'start'}));
+    }
+  }, true);
+})();
+</script>
+
 </body>
 </html>
